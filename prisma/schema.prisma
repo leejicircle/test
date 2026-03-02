@@ -1,0 +1,22 @@
+// Prisma 스키마 파일
+// 채팅 메시지를 SQLite 데이터베이스에 저장합니다.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+/// 채팅 메시지 모델
+/// 각 메시지는 발신자 정보, 내용, 타임스탬프를 포함합니다.
+model Message {
+  id        String   @id @default(cuid())
+  content   String   // 메시지 내용
+  userName  String   // 발신자 이름 (OAuth 프로필에서 가져옴)
+  userEmail String   // 발신자 이메일 (고유 식별용)
+  userImage String?  // 발신자 프로필 이미지 URL
+  createdAt DateTime @default(now()) // 메시지 생성 시각
+}
