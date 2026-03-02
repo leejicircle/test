@@ -12,6 +12,7 @@
 
 import { auth, signOut } from "@/auth";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
   /* 서버에서 현재 사용자 세션 조회 */
@@ -57,6 +58,14 @@ export default async function Home() {
                 로 로그인됨
               </span>
             </div>
+
+            {/* 채팅 페이지 바로가기 */}
+            <Link
+              href="/chat"
+              className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+            >
+              실시간 채팅 시작하기
+            </Link>
 
             {/*
              * 로그아웃 버튼
