@@ -112,10 +112,10 @@ export default function ChatPage() {
 
   /**
    * 타임스탬프 포맷팅 함수
-   * ISO 문자열을 "오후 3:42" 형식으로 변환합니다.
+   * 사용자의 브라우저 로케일/타임존을 자동 감지하여 시간을 표시합니다.
    */
   const formatTime = (dateStr: string) => {
-    return new Date(dateStr).toLocaleTimeString("ko-KR", {
+    return new Date(dateStr).toLocaleTimeString(undefined, {
       hour: "2-digit",
       minute: "2-digit",
     });
